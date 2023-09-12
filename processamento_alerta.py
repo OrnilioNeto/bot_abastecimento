@@ -14,6 +14,7 @@ logging.basicConfig(level=logging.INFO, filename='app.log',
 agora = datetime.now()
 data_atual = agora.strftime("%Y-%m-%d")
 hora_atual = agora.strftime("%H:%M")
+BSOFT = "Bsoft Web"
 
 
 class ExportReport:
@@ -110,15 +111,18 @@ class ExportReport:
 
     # Função que realiza o processamento do sistema
     def evento_logar(self,login, senha):
-       pyautogui.moveTo(32,125, duration=2)
-       pyautogui.doubleClick()
-       sleep(9)
-       pyautogui.moveTo(1323,10, duration=2)
-       pyautogui.click()
-       pyautogui.moveTo(646,441, duration=2)
-       sleep(0.5)
-       pyautogui.click()
-       pyautogui.doubleClick()
+       sleep(1)
+       #abre a janel do windons
+       pyautogui.press('win') 
+       sleep(1)
+       # digita o nome do software
+       for i in BSOFT:
+           pyautogui.typewrite(i)
+           sleep(0.5)
+        # confirma para abrir o software 
+       pyautogui.press('enter')
+       # verificar se o software foi aberto
+      
        for i in login:
            pyautogui.typewrite(i)
            sleep(0.5)        
